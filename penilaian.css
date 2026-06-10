@@ -1,0 +1,293 @@
+/* ==========================================
+   PENGATURAN VARIABEL (Edit di sini untuk kustomisasi)
+   ========================================== */
+:root {
+    /* Gambar & Kegelapan Background Utama */
+    --gambar-latar: url('foto-bg-transparan.jpeg');
+    --warna-overlay: rgba(15, 32, 67, 0.82); /* Biru gelap transparan pekat */
+    --efek-blur: 6px;
+
+    /* Pewarnaan Kartu Evaluasi */
+    --bg-card: #ffffff;
+    --border-terbaik: #fbbf24; /* Warna emas/kuning */
+
+    /* Palet Warna Gradasi Siklus (Dari Gelap ke Terang) */
+    --siklus-1: #909dad;
+    --siklus-2: #dbe4f1;
+    --siklus-3: #d31d1d;
+}
+
+/* ==========================================
+   RESET CSS BASIC
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-image: var(--gambar-latar);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Membuat lapisan gelap blur di atas background */
+.bg-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--warna-overlay);
+    backdrop-filter: blur(var(--efek-blur));
+    z-index: 1;
+}
+
+/* ==========================================
+   NAVBAR (Navigasi Atas)
+   ========================================== */
+.navbar {
+    position: relative;
+    z-index: 10;
+    padding: 25px 50px;
+    background: transparent;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff;
+}
+
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+}
+
+/* ==========================================
+   KONTEN UTAMA & STRUKTUR EVALUASI KINERJA
+   ========================================== */
+.content-wrapper {
+    position: relative;
+    z-index: 5;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Container utama diatur transparan penuh */
+.container-evaluasi {
+    background: transparent; 
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+/* Judul Atas Konten (Teks dibuat putih/terang agar kontras dengan background gelap) */
+.header-evaluasi h5 {
+    color: #93c5fd;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.header-evaluasi h2 {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.line-deco {
+    width: 60px;
+    height: 4px;
+    background-color: #3b82f6;
+    margin: 0 auto 48px auto;
+    border-radius: 2px;
+}
+
+/* Wrapper Susunan Kartu */
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+/* Struktur Utama Kartu */
+.card-siklus {
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    width: 340px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Kartu Siklus 3 Terbaik */
+.card-siklus.highlighted {
+    border: 2px solid var(--border-terbaik);
+    box-shadow: 0 15px 35px rgba(251, 191, 36, 0.2);
+}
+
+.badge-terbaik {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--border-terbaik);
+    color: #000000;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+/* Bagian Atas Kartu (Header Berwarna) */
+.card-header {
+    padding: 24px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ch-blue-dark { background-color: var(--siklus-1); }
+.ch-blue-medium { background-color: var(--siklus-2); }
+.ch-blue-light { background-color: var(--siklus-3); }
+
+.title-siklus {
+    font-size: 14px;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.num-siklus {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+/* Bagian Progress Bar Dalam Kartu */
+.card-body {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.progress-group {
+    text-align: left;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.progress-label strong {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background-color: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+}
+
+.fill-dark { background-color: var(--siklus-1); }
+.fill-medium { background-color: var(--siklus-2); }
+.fill-light { background-color: var(--siklus-3); }
+
+/* Bagian Bawah Kartu (Rata-rata) */
+.card-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px dashed #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-label {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.footer-score {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.score-dark { color: var(--siklus-1); }
+.score-medium { color: var(--siklus-2); }
+.score-light { color: var(--siklus-3); }
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 992px) {
+    .cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-links {
+        display: none; /* Menyembunyikan menu navigasi di HP/Tablet */
+    }
+}

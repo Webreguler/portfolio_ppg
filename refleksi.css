@@ -1,0 +1,225 @@
+:root {
+    /* Silakan ganti dengan nama file foto sekolah Anda */
+    --bgi-foto-sekolah: url('foto-bg-transparan.jpeg');
+    
+    /* Satu font utama untuk semua elemen */
+    --font-utama: 'Poppins', sans-serif;
+}
+
+/* ==========================================
+   RESET & BACKGROUND
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: var(--font-utama);
+    overflow-x: hidden;
+}
+
+.bg-overlay-foto {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: var(--bgi-foto-sekolah);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.bg-overlay-foto::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(20, 38, 74, 0.75);
+    backdrop-filter: blur(6px);
+}
+
+/* ==========================================
+   NAVBAR (Sama Jenis Font)
+   ========================================== */
+.navbar {
+    position: relative;
+    z-index: 10;
+    padding: 25px 50px;
+    background: transparent;
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    padding-bottom: 4px;
+}
+
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* ==========================================
+   JUDUL UTAMA (Ukuran Besar & Tebal ala Gambar 1)
+   ========================================== */
+.content-wrapper {
+    position: relative;
+    z-index: 5;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px 60px 20px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 950px;
+    text-align: center;
+}
+
+.header-refleksi h2 {
+    color: #ffffff;
+    font-size: 42px; /* Ukuran besar mantap */
+    font-weight: 700; /* Super tebal */
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+
+/* Garis dekorasi bawah biru dari gambar 1 */
+.line-deco {
+    width: 55px;
+    height: 4px;
+    background-color: #2563eb;
+    margin: 0 auto 40px auto;
+    border-radius: 4px;
+}
+
+/* ==========================================
+   KARTU UTAMA (Sama Jenis Font)
+   ========================================== */
+.card-refleksi {
+    background-color: #eef2f6;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.card-header-blue {
+    background-color: #7cbdff;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-bulb {
+    font-size: 20px;
+}
+
+.card-header-blue h3 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-body-list {
+    padding: 10px 0;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 30px;
+}
+
+.bg-light-blue {
+    background-color: rgba(220, 230, 242, 0.5);
+}
+
+.number-circle {
+    width: 36px;
+    height: 36px;
+    background-color: #cbdcf2;
+    color: #1e40af;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.list-text h4 {
+    color: #0f2d5c;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.list-text p {
+    color: #526685;
+    font-size: 14px;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+@media (max-width: 768px) {
+    .nav-links { 
+        display: none; 
+    }
+    .header-refleksi h2 { 
+        font-size: 28px; 
+    }
+}
+
+/* ==========================================
+   EFEK HOVER & ACTIVE NAVBAR (PERBAIKAN)
+   ========================================== */
+/* 1. Tambahkan titik (.) sebelum nav-links */
+.nav-links a:hover {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff; /* Tambahkan ini jika ingin muncul garis putih saat kursor lewat */
+}
+
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+    /* padding-bottom dipindahkan ke sini agar jarak garis konsisten */
+    padding-bottom: 4px; 
+}

@@ -1,0 +1,244 @@
+/* ==========================================================================
+   1. RESET DASAR & BACKGROUND HALAMAN (TRANSPARAN GELAP)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    /* Overlay gelap menyatu dengan gambar latar belakang transparan sekolah */
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
+                url('foto-bg-transparan.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ==========================================================================
+   2. STYLING NAVBAR (EVALUASI PERSIS SEPERTI CONTOH)
+   ========================================================================== */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 25px 0; /* Memberikan ruang vertikal navbar */
+    background: transparent; /* Sepenuhnya transparan menyatu dengan background utama */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Jarak proporsional antar tautan menu */
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7); /* Warna teks transparan tipis saat tidak aktif */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+/* Warna menu saat disorot kursor atau saat posisi halaman aktif */
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   3. STRUKTUR KONTEN UTAMA
+   ========================================================================== */
+.content-wrapper {
+    padding-top: 140px; /* Memberikan ruang aman agar tidak tertabrak navbar */
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Bagian Judul Luar */
+.header-section {
+    margin-bottom: 45px;
+}
+
+.sub-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #cbd5e1;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   4. KOTAK PEMBUNGKUS UTAMA (TRANSPARAN DENGAN BLUR)
+   ========================================================================== */
+.wrapper-box {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 55px 60px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* TATA LETAK GRID 2 KOLOM */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px 60px;
+    text-align: left;
+}
+
+.grid-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+/* ==========================================================================
+   5. STYLING ELEMEN KARTU & INDIKATOR HIJAU TOSKA
+   ========================================================================== */
+.icon-box {
+    background-color: #72c1b7; /* Warna Toska Jalur Artefak */
+    color: #0f172a;           /* Mengubah ikon menjadi gelap agar kontras */
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(114, 193, 183, 0.35);
+}
+
+.icon-box svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.info-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.info-content p {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   6. SESI QUOTE (BAGIAN BAWAH)
+   ========================================================================== */
+.quote-section {
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    margin-top: 50px;
+    padding-top: 35px;
+    font-style: italic;
+}
+
+.quote-text {
+    font-size: 16px;
+    color: #f1f5f9;
+    margin-bottom: 6px;
+}
+
+.quote-author {
+    font-size: 13px;
+    color: #94a3b8;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   7. MEDIA QUERIES (RESPONSIF SMARTPHONE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .wrapper-box {
+        padding: 40px;
+    }
+    .grid-container {
+        gap: 35px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 0;
+    }
+    .nav-container {
+        padding: 0 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .wrapper-box {
+        padding: 35px 20px;
+    }
+    .grid-container {
+        grid-template-columns: 1fr; /* Responsif menjadi 1 kolom di HP */
+        gap: 30px;
+    }
+    .main-title {
+        font-size: 26px;
+    }
+}
+.nav-links a:hover {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff;
+}
+
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+}

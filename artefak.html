@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio PPG - Artefak</title>
+    <link rel="stylesheet" href="style-artefak.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Mengatur tampilan tombol navigasi antar siklus */
+        .siklus-tab-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            background-color: #f1f5f9;
+            padding: 8px;
+            border-radius: 12px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .tab-button {
+            flex: 1;
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            text-align: center;
+        }
+        .tab-button.active {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+        
+        /* PENTING: Memaksa menyembunyikan siklus yang tidak aktif agar tidak menumpuk ke bawah */
+        .siklus-content {
+            display: none !important;
+        }
+        /* Memaksa menampilkan 4 kartu dalam bentuk grid HANYA pada siklus yang sedang aktif */
+        .siklus-content.active {
+            display: grid !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-overlay-foto"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Portfolio PPG</a>
+            <ul class="nav-links">
+                <li><a href="profil.html" class="hover:text-gray-300 transition">Profil</a></li>
+                <li><a href="artefak.html" class="hover:text-gray-300 transition">Artefak</a></li>
+                <li><a href="refleksi.html" class="hover:text-gray-300 transition">Refleksi</a></li>
+                <li><a href="penilaian.html" class="hover:text-gray-300 transition">Penilaian</a></li>
+                <li><a href="model-guru.html" class="hover:text-gray-300 transition">Model Guru</a></li>
+                <li><a href="filosofi_mengajar.html" class="hover:text-gray-300 transition">Filosofi Mengajar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+        <div class="main-container">
+            
+            <div class="header-artefak">
+                <h2>Artefak Pembelajaran</h2>
+                <div class="line-deco"></div>
+            </div>
+
+            <div class="siklus-tab-container">
+                <button class="tab-button active" onclick="switchSiklus('siklus-1', this)">Siklus 1</button>
+                <button class="tab-button" onclick="switchSiklus('siklus-2', this)">Siklus 2</button>
+                <button class="tab-button" onclick="switchSiklus('siklus-3', this)">Siklus 3</button>
+            </div>
+
+            <div id="siklus-1" class="grid-artefak siklus-content active">
+                
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('MODUL AJAR PJOK SMA FASE E LOMPAT TINGGI.pdf', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Modul Ajar – Siklus 1</h3>
+                    <p>Modul Ajar yang dijelaskan secara mendalam (konteks, tujuan, kelebihan, dan kekurangan).</p>
+                    <a href="modul_ajar_siklus_1.pdf" target="_blank" class="btn-link">Modul Ajar <span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Media Pembelajaran – Siklus 1</h3>
+                    <p>Media interaktif pembelajaran yang menarik untuk meningkatkan pemahaman dan keterlibatan peserta didik.</p>
+                    <a href="#" target="_blank" class="btn-link">Lihat Dokumen <span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Analisis Refleksi – Siklus 1</h3>
+                    <p>Mengevaluasi suatu pengalaman, kegiatan, atau pembelajaran secara mendalam.</p>
+                    <a href="refleksi_siklus_1.pdf" target="_blank" class="btn-link">Refleksi <span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('Lampiran 7 & 8 Siklus 1.pdf', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Lampiran 7 dan Lampiran 8 – Siklus 1</h3>
+                    <p>Penilaian dari guru pamong terkait dengan rancangan pembelajaran yang telah disusun dan praktik mengajar yang dilakukan.</p>
+                    <a href="Lampiran 7 & 8 Siklus 1.pdf" target="_blank" class="btn-link">Lampiran 7-8 <span>↗</span></a>
+                </div>
+
+            </div>
+
+
+            <div id="siklus-2" class="grid-artefak siklus-content">
+                
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Modul Ajar – Siklus 2</h3>
+                    <p>Modul Ajar yang dijelaskan secara mendalam dengan perbaikan berdasarkan evaluasi siklus sebelumnya.</p>
+                    <a href="modul_ajar_pjok_siklus_2.pdf" target="_blank" class="btn-link">Modul Ajar<span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Media Pembelajaran – Siklus 2</h3>
+                    <p>Media interaktif pembelajaran yang menarik untuk meningkatkan pemahaman dan keterlibatan peserta didik dengan inovasi lanjutan.</p>
+                    <a href="#" target="_blank" class="btn-link">Lihat Dokumen <span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Analisis Refleksi – Siklus 2</h3>
+                    <p>Mengevaluasi suatu pengalaman, kegiatan, atau pembelajaran secara mendalam dari pelaksanaan siklus kedua.</p>
+                    <a href="refleksi_siklus_2.pdf" target="_blank" class="btn-link">Refleksi <span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Lampiran 7 dan Lampiran 8 – Siklus 2</h3>
+                    <p>Penilaian dari guru pamong terkait dengan rancangan pembelajaran yang telah disusun dan praktik mengajar yang dilakukan pada siklus kedua.</p>
+                    <a href="lampiran_7_dan_8_siklus_2.pdf" target="_blank" class="btn-link">Lampiran 7-8 <span>↗</span></a>
+                </div>
+
+            </div>
+
+
+            <div id="siklus-3" class="grid-artefak siklus-content">
+                
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Modul Ajar – Siklus 3</h3>
+                    <p>Modul Ajar yang dijelaskan secara mendalam dengan perbaikan berdasarkan refleksi siklus 1 dan 2, serta inovasi yang telah diterapkan.</p>
+                    <a href="modul_ajar_siklus_3.pdf" target="_blank" class="btn-link">Modul Ajar <span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Media Pembelajaran – Siklus 3</h3>
+                    <p>Media interaktif pembelajaran yang menarik untuk meningkatkan pemahaman peserta didik dengan inovasi final berdasarkan evaluasi.</p>
+                    <a href="#" target="_blank" class="btn-link">Lihat Dokumen <span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Analisis Refleksi – Siklus 3</h3>
+                    <p>Mengevaluasi suatu pengalaman, kegiatan, atau pembelajaran secara mendalam dari pelaksanaan siklus ketiga secara komprehensif.</p>
+                    <a href="refleksi_siklus_3.pdf" target="_blank" class="btn-link">Refleksi <span>↗</span></a>
+                </div>
+
+                <div class="card-artefak card-cyan" 
+                     style="cursor: pointer; transition: background-color 0.25s ease, transform 0.25s ease;"
+                     onmouseover="this.style.backgroundColor='#e9e8e8'; this.style.transform='translateY(-4px)';" 
+                     onmouseout="this.style.backgroundColor='#72c1b7'; this.style.transform='translateY(0px)';"
+                     onclick="if(!event.target.closest('.btn-link')) { window.open('#', '_blank'); }">
+                    <div class="icon-document">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>Lampiran 7 dan Lampiran 8 – Siklus 3</h3>
+                    <p>Penilaian dari guru pamong terkait dengan rancangan pembelajaran yang telah disusun dan praktik mengajar yang dilakukan pada siklus ketiga.</p>
+                    <a href="lampiran_7_dan_8_siklus_3.pdf" target="_blank" class="btn-link">Lampiran 7-8 <span>↗</span></a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function switchSiklus(siklusId, targetButton) {
+            // Sembunyikan semua siklus secara total
+            document.querySelectorAll('.siklus-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Hilangkan tanda aktif hitam dari semua tombol tab
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            // Tampilkan hanya siklus yang dipilih dan warnai tombolnya jadi aktif
+            document.getElementById(siklusId).classList.add('active');
+            targetButton.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
+
+<link rel="stylesheet" href="artefak.css">

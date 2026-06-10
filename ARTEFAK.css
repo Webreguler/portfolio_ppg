@@ -1,0 +1,266 @@
+:root {
+    /* Masukkan file foto background Anda di sini */
+    --bgi-foto-basket: url('foto-bg-transparan.jpeg');
+    
+    /* Font Poppins sesuai permintaan agar seragam */
+    --font-utama: 'Poppins', sans-serif;
+}
+
+/* ==========================================
+   RESET & BACKGROUND EFECT
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: var(--font-utama);
+    overflow-x: hidden;
+}
+
+.bg-overlay-foto {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: var(--bgi-foto-basket);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.bg-overlay-foto::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(20, 38, 74, 0.72); /* Overlay biru tipis transparan */
+    backdrop-filter: blur(5px);
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+    position: relative;
+    z-index: 10;
+    padding: 25px 50px;
+    background: transparent;
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    padding-bottom: 4px;
+}
+
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* ==========================================
+   GAYA JUDUL (UKURAN & MODEL SAMA SEBELUMNYA)
+   ========================================== */
+.content-wrapper {
+    position: relative;
+    z-index: 5;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px 60px 20px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1140px;
+    text-align: center;
+}
+
+.header-artefak h2 {
+    color: #ffffff;
+    font-size: 42px; /* Ukuran besar mantap */
+    font-weight: 700; /* Font tebal */
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+
+/* Dekorasi garis bawah biru */
+.line-deco {
+    width: 55px;
+    height: 4px;
+    background-color: #2563eb;
+    margin: 0 auto 45px auto;
+    border-radius: 4px;
+}
+
+/* ==========================================
+   GRID KARTU ARTEFAK KONTEN (Persis Gambar)
+   ========================================== */
+.grid-artefak {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.card-artefak {
+    border-radius: 24px;
+    padding: 35px;
+    text-align: left;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pembagian warna kartu sesuai gambar asli */
+.card-cyan {
+    background-color: rgba(147, 222, 214, 0.85); /* Hijau cyan transparan lembut */
+}
+
+.card-white {
+    background-color: #e9e8e8; /* Kartu putih bersih */
+}
+
+/* Wadah Icon Putih Kecil */
+.icon-document {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Mengatur warna teks berdasarkan jenis kartu agar kontras */
+.card-cyan h3 { color: #0f2942; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.card-cyan p { color: #3d5a6c; font-size: 14.5px; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+.card-cyan .btn-link { color: #2563eb; font-weight: 600; text-decoration: none; font-size: 14.5px; }
+
+.card-white h3 { color: #1e293b; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.card-white p { color: #64748b; font-size: 14.5px; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+.card-white .btn-link { color: #2563eb; font-weight: 600; text-decoration: none; font-size: 14.5px; }
+
+.btn-link span {
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+/* RESPONSIVE UNTUK SMARTPHONE */
+@media (max-width: 850px) {
+    .grid-artefak {
+        grid-template-columns: 1fr;
+    }
+    .nav-links {
+        display: none;
+    }
+    .header-artefak h2 {
+        font-size: 28px;
+    }
+
+    /* =======================================================
+   1. ANIMASI HALUS PADA KARTU UTAMA
+   ======================================================= */
+.card-artefak {
+    /* Mengubah kursor menjadi pointer tangan di seluruh area kartu */
+    cursor: pointer; 
+    
+    /* PENTING: Agar perubahan warna saat di-hover berlangsung halus (tidak patah-patah) */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* =======================================================
+   2. EFEK PERUBAHAN WARNA SAAT KURSOR LEWAT (HOVER)
+   ======================================================= */
+
+/* A. Respon untuk kartu berwarna Cyan (Toska) */
+/* Saat dilewati, warnanya akan berubah menjadi toska yang sedikit lebih gelap/tajam */
+.card-cyan:hover {
+    background-color: #5bb3a9; /* Silakan ganti kode warna ini sesuai selera Anda */
+    transform: translateY(-4px); /* Efek kartu agak terangkat naik */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Bayangan di bawah kartu menonjol */
+}
+
+/* B. Respon untuk kartu berwarna Putih */
+/* Saat dilewati, warnanya akan berubah menjadi abu-abu super muda/terang */
+.card-white:hover {
+    background-color: #f3f4f6; /* Warna abu-abu soft */
+    transform: translateY(-4px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =======================================================
+   3. EFEK TAMBAHAN JIKA ANDA MENGGUNAKAN PEMBUNGKUS LINK TAG <a>
+   ======================================================= */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+    /* Pastikan transisi perubahan warna dasar card terasa mulus */
+.card-artefak {
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+/* WARNA HOVER: Ketika kursor menyentuh card Cyan (Toska) */
+.card-cyan:hover {
+    background-color: #5ba69c !important; /* Warna toska berubah sedikit lebih gelap solid */
+    transform: translateY(-4px); /* Kartu sedikit naik */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Bayangan membesar */
+}
+
+/* WARNA HOVER: Ketika kursor menyentuh card White (Putih) */
+.card-white:hover {
+    background-color: #f1f5f9 !important; /* Warna putih berubah ke abu-abu super soft terang */
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff;
+}
+
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+}

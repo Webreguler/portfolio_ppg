@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio PPG - Profil Mahasiswa</title>
+    <link rel="stylesheet" href="style-profil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bg-overlay-foto"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Portfolio PPG</a>
+            <ul class="nav-links">
+                <li><a href="profil.html" class="hover:text-gray-300 transition">Profil</a></li>
+                <li><a href="artefak.html" class="hover:text-gray-300 transition">Artefak</a></li>
+                <li><a href="refleksi.html" class="hover:text-gray-300 transition">Refleksi</a></li>
+                <li><a href="penilaian.html" class="hover:text-gray-300 transition">Penilaian</a></li>
+                <li><a href="model-guru.html" class="hover:text-gray-300 transition">Model Guru</a></li>
+                <li><a href="filosofi-mengajar.html" class="hover:text-gray-300 transition">Filosofi Mengajar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+        <div class="main-container">
+
+            <div class="card-profil-utama">
+                
+                <div class="avatar-wrapper">
+                    <img src="rafli (2).jpg" alt="Profil Mahasiswa" class="profile-img">
+                </div>
+
+                <div class="header-profil">
+                    <h2>Profil Mahasiswa</h2>
+                </div>
+
+                <table class="table-info">
+                    <tr>
+                        <td class="label">Nama:</td>
+                        <td class="value">Rafli Ariansah S</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Prodi:</td>
+                        <td class="value">Pendidikan Jasmani</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Kampus:</td>
+                        <td class="value">Universitas PGRI Adibuana Surabaya</td>
+                    </tr>
+                </table>
+
+                <button id="btnToggleDetail" class="btn-toggle" onclick="toggleDetailProfil()">Sembunyikan Detail</button>
+
+                <div id="detailContentContainer">
+                    
+                    <div class="meta-info-box">
+                        <p><strong>Hobi:</strong> Mengajar dan sepak bola</p>
+                        <p><strong>Visi:</strong> Menjadi pendidik yang mampu menuntun tumbuh kembang murid secara utuh, agar mereka berkembang sesuai kodratnya dan siap menghadapi tantangan zaman.</p>
+                    </div>
+
+                    <div class="grid-cards-bottom">
+                        <div class="sub-card">
+                            <div class="icon-pin">📍</div>
+                            <h4>Daerah Asal</h4>
+                            <p>Kota Sidoarjo dikenal sebagai kota yang kaya akan kuliner dan budaya, selain kuliner dan budaya kota ini dikenal dengan wisata lumpur lapindonya</p>
+                        </div>
+
+                        <div class="sub-card">
+                            <div class="icon-target">🎯</div>
+                            <h4>Tujuan</h4>
+                            <p>Sebagai mahasiswa PPG, saya memiliki visi untuk menjadi pendidik profesional yang berintegritas, inspiratif, dan berpusat pada peserta didik dalam menciptakan pembelajaran yang aktif, bermakna, serta mampu mengembangkan potensi siswa secara optimal.</p>
+                        </div>
+
+                        <div class="sub-card">
+                            <div class="icon-fire">🔥</div>
+                            <h4>Motivasi</h4>
+                            <p>Motivasi saya memilih dunia pendidikan berangkat dari kesadaran bahwa guru memiliki peran penting dalam membentuk generasi yang berkualitas. Saya terdorong untuk menjadi bagian dari perubahan positif tersebut, memberikan dampak bagi kehidupan siswa, serta terus belajar dan berkembang sebagai pendidik yang mampu menginspirasi, membimbing, dan menumbuhkan semangat belajar peserta didik.</p>
+                        </div>
+                    </div>
+
+                </div> </div>
+
+        </div>
+    </main>
+
+    <script>
+        function toggleDetailProfil() {
+            const container = document.getElementById('detailContentContainer');
+            const button = document.getElementById('btnToggleDetail');
+            
+            // Cek status display container
+            if (container.style.display === 'none') {
+                container.style.display = 'block';
+                button.textContent = 'Sembunyikan Detail';
+                button.classList.remove('btn-collapsed');
+            } else {
+                container.style.display = 'none';
+                button.textContent = 'Tampilkan Detail';
+                button.classList.add('btn-collapsed');
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<link rel="stylesheet" href="profil.css">
+<script src="profil.js"></script>

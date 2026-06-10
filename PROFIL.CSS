@@ -1,0 +1,275 @@
+:root {
+    --bgi-foto-lapangan: url('foto-bg-transparan.jpeg');
+    --font-utama: 'Poppins', sans-serif;
+}
+
+/* ==========================================
+   RESET & BACKGROUND
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: var(--font-utama);
+    overflow-x: hidden;
+}
+
+.bg-overlay-foto {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: var(--bgi-foto-lapangan);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.bg-overlay-foto::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(22, 44, 78, 0.76);
+    backdrop-filter: blur(5px);
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+    position: relative;
+    z-index: 10;
+    padding: 25px 50px;
+    background: transparent;
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    padding-bottom: 4px;
+}
+
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* ==========================================
+   KARTU PROFIL UTAMA
+   ========================================== */
+.content-wrapper {
+    position: relative;
+    z-index: 5;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 50px 20px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 850px;
+}
+
+.card-profil-utama {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px 35px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.avatar-wrapper {
+    width: 130px;
+    height: 170px;
+    margin: 0 auto 20px auto;
+    border-radius: 12px;
+    border: 3px solid #ffffff;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-profil h2 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.3px;
+}
+
+.table-info {
+    width: auto;
+    margin: 0 auto 20px auto;
+    border-collapse: collapse;
+    color: #ffffff;
+    font-size: 14.5px;
+    text-align: left;
+}
+
+.table-info td {
+    padding: 5px 10px;
+}
+
+.table-info td.label {
+    font-weight: 600;
+    opacity: 0.9;
+    width: 80px;
+}
+
+.table-info td.value {
+    opacity: 0.85;
+}
+
+/* ==========================================
+   TOMBOL INTERAKTIF (BISA DIPENCET)
+   ========================================== */
+.btn-toggle {
+    background-color: #ffffff;
+    color: #162c4e;
+    border: none;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background-color 0.2s, transform 0.1s, color 0.2s;
+}
+
+.btn-toggle:hover {
+    background-color: #e2e8f0;
+}
+
+.btn-toggle:active {
+    transform: scale(0.97);
+}
+
+/* Perubahan warna tombol opsional ketika menu tertutup */
+.btn-toggle.btn-collapsed {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+/* Container Transisi */
+#detailContentContainer {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   DETAIL INFORMASI BAWAH
+   ========================================== */
+.meta-info-box {
+    background: rgba(15, 23, 42, 0.3);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.meta-info-box p {
+    color: #ffffff;
+    font-size: 14px;
+    margin: 4px 0;
+    opacity: 0.9;
+}
+
+.grid-cards-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.sub-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 22px 16px;
+    text-align: center;
+}
+
+.sub-card div[class^="icon-"] {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sub-card h4 {
+    color: #ffffff;
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.sub-card p {
+    color: #cbd5e1;
+    font-size: 11px;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .grid-cards-bottom { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .card-profil-utama { padding: 25px 15px; }
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff;
+}
+
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+}
+
