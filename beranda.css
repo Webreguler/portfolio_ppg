@@ -283,4 +283,68 @@ button:hover, .btn-detail:hover {
   }
 }
 
+/* ===================================================
+   KODE RESPONSIF GLOBAL (UNTUK SEMUA HALAMAN DI HP)
+   =================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Mengatur Navbar agar tidak menumpuk atau terpotong di HP */
+    .nav-container {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+        gap: 10px;
+    }
+
+    /* 2. Membuat menu navigasi berbaris rapi ke bawah / membungkus otomatis */
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 0;
+    }
+
+    .nav-links li a {
+        font-size: 14px; /* Memperkecil sedikit ukuran teks menu di HP */
+        padding: 6px 10px;
+    }
+
+    /* 3. Mengatur pembungkus konten utama agar pas dengan layar HP */
+    .content-wrapper, .main-container {
+        padding: 15px;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* 4. Mengubah semua sistem Grid (Kotak-kotak) menjadi 1 kolom ke bawah */
+    .grid-container, .card-container, .artefak-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    /* 5. Mengubah sistem Flexbox yang berjejer ke samping menjadi ke bawah */
+    .flex-container, .profile-section {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* 6. Menyesuaikan ukuran gambar (seperti foto profil/artefak) agar tidak meluber */
+    .profile-img, .artefak-img, img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 7. Menyesuaikan ukuran judul besar agar tidak terpotong di layar HP */
+    h1, .main-title {
+        font-size: 24px !important;
+    }
+    h2 {
+        font-size: 20px !important;
+    }
+}
+
+
+
 
